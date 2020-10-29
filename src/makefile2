@@ -1,0 +1,12 @@
+test:max.a sum.a max.c sum.c
+	gcc max.c -I ../include max.a -o max2
+	gcc sum.c -I ../include max.a -o sum2
+max.a:max.o
+	ar rcs max.a  max.o
+sum.a:sum.o
+	ar rcs sum.a  sum.o
+max.o:max.c
+	gcc -c max.c -I ../include  -o max.o
+sum.o:sum.c
+	gcc -c sum.c -I ../include  -o sum.o
+	
